@@ -34,6 +34,28 @@ public class Main
         System.out.println("How many -of-: " + stringHashMap.get("of"));
         System.out.println();
 
+        // make an ArrayList for sorting
+        ArrayList<HashMap.Entry<String, Integer>> wordArrayList = new ArrayList<HashMap.Entry<String, Integer>>();
+        wordArrayList.addAll(stringHashMap.entrySet());
+        Collections.sort(wordArrayList, new Comparator<Map.Entry<String, Integer>>() 
+        {
+            public int compare (HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+            {
+                return o2.getValue() - o1.getValue();
+            }
+        });
 
+        // for (HashMap.Entry<String, Integer> word : wordArrayList)
+        // {
+        //     System.out.println("key: " + word.getKey() + ", value: " + word.getValue());
+        // }
+
+        System.out.println("*** Top 50 appearing words ***");
+        for (int i = 0; i < 50; i++) {
+            System.out.println("key: " + wordArrayList.get(i).getKey() + ", value: " + wordArrayList.get(i).getValue());
+        }
+        System.out.println();
+
+        
     }
 }
