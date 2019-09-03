@@ -51,11 +51,29 @@ public class Main
         // }
 
         System.out.println("*** Top 50 appearing words ***");
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 50; i++) 
+        {
             System.out.println("key: " + wordArrayList.get(i).getKey() + ", value: " + wordArrayList.get(i).getValue());
         }
         System.out.println();
 
+        // Stretch goals
+        ArrayList<HashMap.Entry<String, Integer>> alphabetArrayList = new ArrayList<HashMap.Entry<String, Integer>>();
+
+        Collections.sort(alphabetArrayList, new Comparator<Map.Entry<String,Integer>>()
+        {
+            public int compare (HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+            {
+                return o2.getKey().compareToIgnoreCase(o1.getKey());
+            }
+        });
         
+
+        System.out.println("*** Top 50 appearing words alphabetically ***");
+        for (int i = 0; i < 50; i++)
+        {
+            System.out.println("ALPH TOP 50: " + alphabetArrayList.get(i).getKey());
+        }
+        System.out.println();
     }
 }
